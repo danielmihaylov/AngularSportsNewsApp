@@ -12,13 +12,14 @@ import { UsersActions } from '../store/users/users.actions';
 })
 export class RegisterComponent {
   user: RegisterUserModel = new RegisterUserModel();
-
+  
   constructor(
     private UsersActions : UsersActions,
     private router: Router,
     private ngRedux: NgRedux<IAppState>) { }
   register () {
     this.UsersActions.register(this.user);
+    
     this.ngRedux
       .select(state => state.users.userRegistered)
       .subscribe(userRegistered => {

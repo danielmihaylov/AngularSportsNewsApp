@@ -9,7 +9,9 @@ import { store } from './store/store';
 
 import { ArticleRoutesModule } from './routes.module';
 import { CoreModule } from './core/core.module';
+import { StatsModule } from './stats/stats.module';
 import { UsersModule } from './users/users.module';
+import { ArticlesModule } from './articles/articles.module';
 
 import { AppComponent } from './app.component';
 
@@ -28,7 +30,9 @@ import { config } from './core/config';
     HttpModule,
     ArticleRoutesModule,
     CoreModule,
-    UsersModule
+    StatsModule,
+    UsersModule,
+    ArticlesModule
     ],
   bootstrap: [AppComponent]
 })
