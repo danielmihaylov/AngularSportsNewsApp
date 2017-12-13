@@ -5,7 +5,7 @@ import {
   GenericStoreEnhancer 
 } from 'redux';
 
-import deepFreeze from './deepFreeze';
+// import deepFreeze from './deepFreeze';
 import { reducer } from './reducer';
 import { IAppState } from './app.state';
 
@@ -16,6 +16,6 @@ const devToolsExtension: GenericStoreEnhancer = (window.devToolsExtension)
 export const store = createStore<IAppState>(
   reducer,
   compose(
-    applyMiddleware(deepFreeze),
+    // applyMiddleware(deepFreeze),
     devToolsExtension
   ) as GenericStoreEnhancer);

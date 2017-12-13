@@ -11,10 +11,20 @@ import { LoginComponent } from './login.component';
 import { ProfileComponent } from './profile.component';
 
 
-@NgModule({
-    declarations:[RegisterComponent,LoginComponent,ProfileComponent],
-    providers:[UsersService,UsersActions],
-    imports:[CommonModule,FormsModule]
+@NgModule ({
+  declarations: [
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent
+  ],
+  providers: [
+    UsersService,
+    UsersActions
+  ],
+  imports: [
+    CommonModule,
+    FormsModule
+  ]
 })
 
-export class UsersModule{}
+export class UsersModule { }

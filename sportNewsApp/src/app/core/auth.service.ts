@@ -23,4 +23,8 @@ export class AuthService {
   getToken () {
     return window.localStorage.getItem('token');
   }
+
+  isAdmin(){
+    return window.localStorage.getItem('user') === "Admin";
+  }
 }

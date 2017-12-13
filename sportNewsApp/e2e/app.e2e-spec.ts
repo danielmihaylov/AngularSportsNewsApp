@@ -1,10 +1,10 @@
-import { AppPage } from './app.po';
+import { ClientPage } from './app.po';
 
-describe('sport-news-app App', () => {
-  let page: AppPage;
+describe('client App', () => {
+  let page: ClientPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new ClientPage();
   });
 
   it('should display welcome message', () => {

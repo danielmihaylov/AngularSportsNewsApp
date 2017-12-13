@@ -1,14 +1,14 @@
 import { initialState } from './users.state';
 
-import {
+import { 
   USER_REGISTERED,
   USER_LOGGED_IN,
   USER_LOGOUT
 } from './users.actions'
 
-function userRegistration(state, action) {
+function userRegistration( state, action) {
   const result = action.result;
-  return Object.assign({}, state, {
+  return Object.assign({}, state,{
     userRegistered: result.success
   })
 }
@@ -27,19 +27,18 @@ function logout(state, action) {
     userAuthenticated: false,
     token: null,
     username: null
-  })
+  });
 }
 
-
 export function usersReducer(state = initialState, action) {
-  switch (action.type) {
+  switch (action.type){
     case USER_REGISTERED:
       return userRegistration(state, action);
     case USER_LOGGED_IN:
       return userLogin(state, action);
     case USER_LOGOUT:
-      return logout(state, action)
+      return logout(state, action);
     default:
-      return state;
+       return state;
   }
 }

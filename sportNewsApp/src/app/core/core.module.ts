@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpService } from './http.service';
 import { AuthService} from './auth.service';
+import { PrivateRoute } from './private-route';
 import { NavbarComponent } from './navbar.component';
+import { MessageHandlerComponent } from './message-handler/message.handler.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    MessageHandlerComponent
   ],
   imports: [
     CommonModule,
@@ -15,10 +18,12 @@ import { NavbarComponent } from './navbar.component';
   ],
   providers: [
     HttpService,
-    AuthService
+    AuthService,
+    PrivateRoute
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    MessageHandlerComponent
   ]
 })
 export class CoreModule { }

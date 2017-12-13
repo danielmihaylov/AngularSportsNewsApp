@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { RegisterUserModel} from './register-user.model';
 
 import { NgRedux } from 'ng2-redux';
-import { IAppState } from '../store/app.state';
+import { IAppState } from '../store';
 
 import { UsersActions } from '../store/users/users.actions';
 @Component({
@@ -12,14 +12,13 @@ import { UsersActions } from '../store/users/users.actions';
 })
 export class RegisterComponent {
   user: RegisterUserModel = new RegisterUserModel();
-  
+
   constructor(
     private UsersActions : UsersActions,
     private router: Router,
     private ngRedux: NgRedux<IAppState>) { }
   register () {
     this.UsersActions.register(this.user);
-    
     this.ngRedux
       .select(state => state.users.userRegistered)
       .subscribe(userRegistered => {

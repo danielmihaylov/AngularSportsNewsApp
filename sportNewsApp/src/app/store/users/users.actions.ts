@@ -6,6 +6,7 @@ import { UsersService } from '../../users/users.service';
 export const USER_REGISTERED = 'users/REGISTER';
 export const USER_LOGGED_IN = 'users/LOGIN';
 export const USER_LOGOUT = 'users/LOGOUT';
+export const USER_PROFILE = 'users/PROFILE';
 
 @Injectable()
 export class UsersActions {
@@ -24,15 +25,15 @@ export class UsersActions {
     });
   }
 
-  login(user){
+  login (user) {
     this.UsersService
-    .login(user)
-    .subscribe(result => {
-      this.ngRedux.dispatch({
-        type:USER_LOGGED_IN,
-        result
-      })
-    })
+      .login(user)
+      .subscribe(result => {
+        this.ngRedux.dispatch({
+          type: USER_LOGGED_IN,
+          result
+        });
+      });
   }
 
   logout () {
@@ -40,4 +41,5 @@ export class UsersActions {
       type: USER_LOGOUT
     });
   }
+  
 }
