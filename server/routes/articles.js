@@ -9,13 +9,6 @@ function validateArticleForm (payload) {
   let isFormValid = true
   let message = ''
 
-  payload.year = parseInt(payload.year)
- 
-
-  if (payload.mileage) {
-    payload.mileage = parseInt(payload.mileage)
-  }
-
   if (!payload || typeof payload.name !== 'string' || payload.name.length < 3) {
     isFormValid = false
     errors.name = 'Name must be more than 3 symbols.'
@@ -25,12 +18,6 @@ function validateArticleForm (payload) {
     isFormValid = false
     errors.author = 'Author must be more than 3 symbols.'
   }
-
-  if (!payload || !payload.year || payload.year < 1950 || payload.year > 2050) {
-    isFormValid = false
-    errors.year = 'Year must be between 1950 and 2050.'
-  }
-
 
   if (!payload || typeof payload.image !== 'string' || payload.image === 0) {
     isFormValid = false
@@ -97,7 +84,7 @@ router.get('/details/:id', authCheck, (req, res) => {
     name: article.name,
     author: article.author,
     details: article.details,
-    year: article.year,
+    category: article.category,
     image: article.image,
     createdOn: article.createdOn,
     likes: article.likes.length
@@ -203,11 +190,10 @@ router.get('/mine', authCheck, (req, res) => {
 
 router.post('/delete/:id', authCheck, (req, res) => {
   const id = req.params.id
-  const user = req.user.email
 
   const article = articlesData.findById(id)
 
-  if (!article || article.createdBy !== user) {
+  if (!article) {
     return res.status(200).json({
       success: false,
       message: 'Article does not exists!'

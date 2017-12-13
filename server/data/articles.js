@@ -12,7 +12,7 @@ module.exports = {
       name: article.name,
       author: article.author,
       details: article.details,
-      year: article.year,
+      category: article.category,
       image: article.image,
       createdOn: new Date(),
       createdBy: article.createdBy,
@@ -24,7 +24,7 @@ module.exports = {
     articles[id] = newArticle
   },
   all: (page, search) => {
-    const pageSize = 10
+    const pageSize = 2
 
     let startIndex = (page - 1) * pageSize
     let endIndex = startIndex + pageSize
